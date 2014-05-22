@@ -1,6 +1,10 @@
 CommandDispatch
 ===============
 
-CommandDispatch
-This demo apps shows how dispatch groups can be used; serial and parallel command execution is implemented using executors which allow sequetial and parallel request execution.
+This demo app shows the following:
+- usage of GCD dispatch queues and groups
+- asynchronous and synchronous execution
+- the Command design pattern
+- the Factory Method design pattern
+
 The app displays execution results in the console.
