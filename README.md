@@ -21,4 +21,4 @@ You can nest multiple commands or command groups as per example below:
 Your command classes have to adhere to the Action protocol. Use ActionGroup instances to group your commands.
 
 Remark
-Tehre is no demo app yet, for a usage example check out the unit tests. Note that execution results are displayed in the XCode console.
+There is no demo app yet, for a usage example check out the unit tests. Note that execution results are displayed in the XCode console.
