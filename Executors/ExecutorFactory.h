@@ -6,8 +6,9 @@
 //  Copyright (c) 2014 NyK. All rights reserved.
 //
 
+@protocol Executor;
 #import <Foundation/Foundation.h>
-#import "Executor.h"
+#import "Action.h"
 
 /**
  *  Creates executors of provided type

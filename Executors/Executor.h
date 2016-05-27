@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Action.h"
+@protocol Action;
 
 /**
  *  Declares the executor methods
@@ -15,17 +15,10 @@
 @protocol Executor <NSObject>
 
 /**
- *  Executes a single action
- *
- *  @param command action to be executed
- */
--(void) execute:(id<Action>) command;
-
-/**
  *  Executes the actions from the passed in array
  *
- *  @param commands array< id<IAction> >
+ *  @param commands array< id<Action> >
  */
--(void) executeCommands:(NSArray*) commands;
+-(void) fireActions:(NSArray*) actions;
 
 @end

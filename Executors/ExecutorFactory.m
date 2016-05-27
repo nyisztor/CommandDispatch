@@ -10,6 +10,7 @@
 #import "ExecutorFactory.h"
 #import "SerialExecutor.h"
 #import "ParallelExecutor.h"
+#import "Executor.h"
 
 @implementation ExecutorFactory
 

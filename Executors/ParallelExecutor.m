@@ -7,7 +7,6 @@
 //
 
 #import "ParallelExecutor.h"
-#import "QueueProvider.h"
 
 #ifdef DEBUG
 #import "DummyAction.h"
@@ -26,7 +25,7 @@
     self = [super init];
     if( self )
     {
-        self.globalQueue = dispatch_get_global_queue(0, 0);
+        self.globalQueue = dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0);
         self.queuedGroup = dispatch_group_create();
     }
     
@@ -57,18 +56,19 @@
 #endif
 }
 
--(void) executeCommands:(NSArray *)commands
+-(void) fireActions:(NSArray *)actions
 {
-    for(id<Action> command in commands )
+    // execute registered actions asynchronously within the group
+    for(id<Action> command in actions )
     {
         dispatch_group_async(self.queuedGroup, self.globalQueue, ^{
             [command execute];
         });
     }
     
+    // wait till all asynchronously executed group actions complete
     dispatch_group_wait(self.queuedGroup, DISPATCH_TIME_FOREVER);
     
-    //            NSLog( @"%@", [NSString stringWithFormat:@"SerialExecutor: Nested parallel %@ %@ finished execution", [command class], command.identifier] );
 #ifdef DEBUG
     dispatch_group_notify(self.queuedGroup, self.globalQueue, ^{
         NSLog( @"ParallelExecutor finished execution" );

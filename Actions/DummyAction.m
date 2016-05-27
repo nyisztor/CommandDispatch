@@ -7,6 +7,7 @@
 //
 
 #import "DummyAction.h"
+#import "Utility.h"
 
 @interface DummyAction()
 
@@ -28,7 +29,13 @@
 
 -(void) execute
 {
-    NSLog( @"Executing action %@", self.identifier );
+    float t = [Utility randomizeInRange:1.f upperLimit:2.f];
+    NSLog( @"Executing action %@, sleeping for %0.2f", self.identifier, t );
+    
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        [NSThread sleepForTimeInterval:t];
+    });
+    
     NSLog( @"Action %@ completed", self.identifier );
 }
 

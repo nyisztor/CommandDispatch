@@ -8,6 +8,8 @@
 
 #import "ActionGroup.h"
 #import "ExecutorFactory.h"
+#import "Executor.h"
+#import "Action.h"
 
 @interface ActionGroup()
 @property(nonatomic, strong) NSString* identifier;
@@ -22,7 +24,6 @@
     {
         self.identifier = id_in;
         self.type = UNKNOWN;
-        self.execQueue = [NSMutableArray array];
     }
     return self;
 }
@@ -32,13 +33,23 @@
  */
 -(void) execute
 {
-    NSLog( @"Executing action group %@", self.identifier );
-    
-    // create the executor based on action group type
-    id<Executor> executor = [[ExecutorFactory sharedInstance] makeExecutor:self.type];
-    [executor executeCommands:self.execQueue];
-    
-    NSLog( @"Action group %@ completed", self.identifier );
+    if( !_actions.count )
+    {
+        NSLog( @"Action group %@ is empty!", self.identifier );
+    }
+    else
+    {
+        NSLog( @"Executing action group %@", self.identifier );
+        
+        // create the executor based on action group type
+        if( _actions.count )
+        {
+            id<Executor> executor = [[ExecutorFactory sharedInstance] makeExecutor:self.type];
+            [executor fireActions:_actions];
+        }
+        
+        NSLog( @"Action group %@ completed", self.identifier );
+    }
 }
 
 -(NSString*) description

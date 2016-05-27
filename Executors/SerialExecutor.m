@@ -10,9 +10,6 @@
 #import "Action.h"
 #import "ActionGroup.h"
 #import "DummyAction.h"
-#import "QueueProvider.h"
-
-const char* SERIAL_QUEUE_LABEL = "com.gammaproject.serialQueue";
 
 @interface SerialExecutor()
 @property(nonatomic, retain) dispatch_queue_t serialQueue;
@@ -26,7 +23,9 @@ const char* SERIAL_QUEUE_LABEL = "com.gammaproject.serialQueue";
     self = [super init];
     if( self )
     {
-        self.serialQueue = dispatch_queue_create( SERIAL_QUEUE_LABEL, NULL);
+        // Create a dedicated serial queue for each SerialExecutor instance
+        NSString* uIdStr = [NSUUID UUID].UUIDString;
+        self.serialQueue = dispatch_queue_create(uIdStr.UTF8String, DISPATCH_QUEUE_SERIAL);
         self.queuedGroup = dispatch_group_create();
     }
     
@@ -40,9 +39,9 @@ const char* SERIAL_QUEUE_LABEL = "com.gammaproject.serialQueue";
     });
 }
 
--(void) executeCommands:(NSArray *)commands
+-(void) fireActions:(NSArray *)actions
 {
-    for(id<Action> command in commands )
+    for(id<Action> command in actions )
     {
         // parallel action (group) nested in a serial one shall complete before starting the next command in the serial queue
         if( command.type == PARALLEL )

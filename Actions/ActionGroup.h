@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Action.h"
+
 /**
  *  Defines an action group
  *  Action groups can hold atomic actions of further action groups, following the Conposite Design Pattern
@@ -18,6 +19,6 @@
 @property (nonatomic, strong) NSMutableDictionary* parameters;  ///< custom parameters
 @property (nonatomic, assign) EEXECUTION_TYPE type;             ///< execution type
 
-@property(nonatomic, strong) NSMutableArray* execQueue; ///< queue containing the commands (id<iAction> objects) to be executed
+@property(nonatomic, strong) NSArray* actions; ///< queue containing the commands (id<iAction> objects) to be executed
 
 @end

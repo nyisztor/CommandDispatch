@@ -27,7 +27,7 @@
 		26577C2E192E42DE005F2A11 /* ExecutorFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 26577C22192E42DE005F2A11 /* ExecutorFactory.m */; };
 		26577C2F192E42DE005F2A11 /* ParallelExecutor.m in Sources */ = {isa = PBXBuildFile; fileRef = 26577C25192E42DE005F2A11 /* ParallelExecutor.m */; };
 		26577C30192E42DE005F2A11 /* SerialExecutor.m in Sources */ = {isa = PBXBuildFile; fileRef = 26577C27192E42DE005F2A11 /* SerialExecutor.m */; };
-		26577C31192E42DE005F2A11 /* QueueProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 26577C29192E42DE005F2A11 /* QueueProvider.m */; };
+		374036D41CF88A030059AA84 /* Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = 374036D31CF88A030059AA84 /* Utility.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,8 +75,8 @@
 		26577C26192E42DE005F2A11 /* SerialExecutor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SerialExecutor.h; sourceTree = "<group>"; };
 		26577C27192E42DE005F2A11 /* SerialExecutor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SerialExecutor.m; sourceTree = "<group>"; };
 		26577C28192E42DE005F2A11 /* ActionCommons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionCommons.h; sourceTree = "<group>"; };
-		26577C29192E42DE005F2A11 /* QueueProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueueProvider.m; sourceTree = "<group>"; };
-		26577C2A192E42DE005F2A11 /* QueueProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueueProvider.h; sourceTree = "<group>"; };
+		374036D21CF88A030059AA84 /* Utility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Utility.h; path = Utility/Utility.h; sourceTree = "<group>"; };
+		374036D31CF88A030059AA84 /* Utility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Utility.m; path = Utility/Utility.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,9 +109,8 @@
 				26577C18192E42DE005F2A11 /* Actions */,
 				26577C20192E42DE005F2A11 /* Executors */,
 				26577C28192E42DE005F2A11 /* ActionCommons.h */,
-				26577C29192E42DE005F2A11 /* QueueProvider.m */,
-				26577C2A192E42DE005F2A11 /* QueueProvider.h */,
 				26577BE9192E427B005F2A11 /* CommandExecution */,
+				374036D51CF88E680059AA84 /* Utility */,
 				26577C08192E427B005F2A11 /* CommandExecutionTests */,
 				26577BE2192E427B005F2A11 /* Frameworks */,
 				26577BE1192E427B005F2A11 /* Products */,
@@ -207,6 +206,15 @@
 				26577C27192E42DE005F2A11 /* SerialExecutor.m */,
 			);
 			path = Executors;
+			sourceTree = "<group>";
+		};
+		374036D51CF88E680059AA84 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				374036D21CF88A030059AA84 /* Utility.h */,
+				374036D31CF88A030059AA84 /* Utility.m */,
+			);
+			name = Utility;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -312,7 +320,7 @@
 				26577BF4192E427B005F2A11 /* AppDelegate.m in Sources */,
 				26577C2D192E42DE005F2A11 /* DummyAction.m in Sources */,
 				26577C2B192E42DE005F2A11 /* MockAsyncAction.m in Sources */,
-				26577C31192E42DE005F2A11 /* QueueProvider.m in Sources */,
+				374036D41CF88A030059AA84 /* Utility.m in Sources */,
 				26577C2E192E42DE005F2A11 /* ExecutorFactory.m in Sources */,
 				26577C30192E42DE005F2A11 /* SerialExecutor.m in Sources */,
 				26577BF0192E427B005F2A11 /* main.m in Sources */,
