@@ -11,7 +11,7 @@
 
 /**
  *  Defines an action group
- *  Action groups can hold atomic actions of further action groups, following the Conposite Design Pattern
+ *  Action groups can include atomic actions of further action groups, following the Conposite Design Pattern
  */
 @interface ActionGroup : NSObject <Action>
 

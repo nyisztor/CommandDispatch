@@ -28,7 +28,7 @@ typedef NS_ENUM(NSInteger, EEXECUTION_TYPE)
 #import <Foundation/Foundation.h>
 
 /**
- *  Decalres the command interface
+ *  Declares the action/command interface
  */
 @protocol Action <NSObject>
 

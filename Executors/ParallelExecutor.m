@@ -9,7 +9,6 @@
 #import "ParallelExecutor.h"
 
 #ifdef DEBUG
-#import "DummyAction.h"
 #import "ActionGroup.h"
 #endif
 
@@ -45,7 +44,7 @@
     {
         NSLog( @"%@", @"ParallelExecutor is executing an Action Group" );
     }
-    else if ( [command isKindOfClass:[DummyAction class]])
+    else if ( [command.class conformsToProtocol:@protocol(Action)])
     {
         NSLog( @"%@", @"ParallelExecutor is executing an Action" );
     }
