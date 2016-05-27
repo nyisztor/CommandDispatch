@@ -6,15 +6,15 @@
 //  Copyright (c) 2014 NyK. All rights reserved.
 //
 
-#import "NYKDummyAction.h"
+#import "DummyAction.h"
 
-@interface NYKDummyAction()
+@interface DummyAction()
 
 @property(nonatomic, strong) NSString* identifier;
 
 @end
 
-@implementation NYKDummyAction
+@implementation DummyAction
 
 -(id) initWithIdentifier:(NSString *)id_in
 {

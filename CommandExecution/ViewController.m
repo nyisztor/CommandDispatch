@@ -37,13 +37,13 @@
     //
     // [SERIAL GROUP #1] END
     
-    NYKActionGroup* serialGroupRoot = [[NYKActionGroup alloc] initWithIdentifier:@"serialGroupRoot"];
+    ActionGroup* serialGroupRoot = [[ActionGroup alloc] initWithIdentifier:@"serialGroupRoot"];
         serialGroupRoot.type = SERIAL;
     
-        NYKDummyAction* serialAction1 = [[NYKDummyAction alloc] initWithIdentifier:@"serialAction1"];
-        NYKDummyAction* serialAction2 = [[NYKDummyAction alloc] initWithIdentifier:@"serialAction2"];
+        DummyAction* serialAction1 = [[DummyAction alloc] initWithIdentifier:@"serialAction1"];
+        DummyAction* serialAction2 = [[DummyAction alloc] initWithIdentifier:@"serialAction2"];
     
-        NYKActionGroup* parallelGroupInner = [[NYKActionGroup alloc] initWithIdentifier:@"parallelGroupInner"];
+        ActionGroup* parallelGroupInner = [[ActionGroup alloc] initWithIdentifier:@"parallelGroupInner"];
         parallelGroupInner.type = PARALLEL;
         
             MockAsyncAction* parallelAction1 = [[MockAsyncAction alloc] initWithIdentifier:@"parallelAction1"];
@@ -51,8 +51,8 @@
             // add the actions to the parallel group
             [parallelGroupInner.execQueue addObjectsFromArray:@[parallelAction1, parallelAction2]];
     
-        NYKDummyAction* serialAction3 = [[NYKDummyAction alloc] initWithIdentifier:@"serialAction3"];
-        NYKDummyAction* serialAction4 = [[NYKDummyAction alloc] initWithIdentifier:@"serialAction4"];
+        DummyAction* serialAction3 = [[DummyAction alloc] initWithIdentifier:@"serialAction3"];
+        DummyAction* serialAction4 = [[DummyAction alloc] initWithIdentifier:@"serialAction4"];
     // add the actions and the actionGroup to the root group
     [serialGroupRoot.execQueue addObjectsFromArray:@[serialAction1, serialAction2, parallelGroupInner, serialAction3, serialAction4]];
     

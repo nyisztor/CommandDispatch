@@ -22,8 +22,8 @@
 		26577C0D192E427B005F2A11 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 26577C0B192E427B005F2A11 /* InfoPlist.strings */; };
 		26577C0F192E427B005F2A11 /* CommandExecutionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 26577C0E192E427B005F2A11 /* CommandExecutionTests.m */; };
 		26577C2B192E42DE005F2A11 /* MockAsyncAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 26577C1B192E42DE005F2A11 /* MockAsyncAction.m */; };
-		26577C2C192E42DE005F2A11 /* NYKActionGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 26577C1D192E42DE005F2A11 /* NYKActionGroup.m */; };
-		26577C2D192E42DE005F2A11 /* NYKDummyAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 26577C1F192E42DE005F2A11 /* NYKDummyAction.m */; };
+		26577C2C192E42DE005F2A11 /* ActionGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 26577C1D192E42DE005F2A11 /* ActionGroup.m */; };
+		26577C2D192E42DE005F2A11 /* DummyAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 26577C1F192E42DE005F2A11 /* DummyAction.m */; };
 		26577C2E192E42DE005F2A11 /* ExecutorFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 26577C22192E42DE005F2A11 /* ExecutorFactory.m */; };
 		26577C2F192E42DE005F2A11 /* ParallelExecutor.m in Sources */ = {isa = PBXBuildFile; fileRef = 26577C25192E42DE005F2A11 /* ParallelExecutor.m */; };
 		26577C30192E42DE005F2A11 /* SerialExecutor.m in Sources */ = {isa = PBXBuildFile; fileRef = 26577C27192E42DE005F2A11 /* SerialExecutor.m */; };
@@ -60,16 +60,16 @@
 		26577C0A192E427B005F2A11 /* CommandExecutionTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CommandExecutionTests-Info.plist"; sourceTree = "<group>"; };
 		26577C0C192E427B005F2A11 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		26577C0E192E427B005F2A11 /* CommandExecutionTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommandExecutionTests.m; sourceTree = "<group>"; };
-		26577C19192E42DE005F2A11 /* IAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAction.h; sourceTree = "<group>"; };
+		26577C19192E42DE005F2A11 /* Action.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Action.h; sourceTree = "<group>"; };
 		26577C1A192E42DE005F2A11 /* MockAsyncAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MockAsyncAction.h; sourceTree = "<group>"; };
 		26577C1B192E42DE005F2A11 /* MockAsyncAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MockAsyncAction.m; sourceTree = "<group>"; };
-		26577C1C192E42DE005F2A11 /* NYKActionGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NYKActionGroup.h; sourceTree = "<group>"; };
-		26577C1D192E42DE005F2A11 /* NYKActionGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NYKActionGroup.m; sourceTree = "<group>"; };
-		26577C1E192E42DE005F2A11 /* NYKDummyAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NYKDummyAction.h; sourceTree = "<group>"; };
-		26577C1F192E42DE005F2A11 /* NYKDummyAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NYKDummyAction.m; sourceTree = "<group>"; };
+		26577C1C192E42DE005F2A11 /* ActionGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionGroup.h; sourceTree = "<group>"; };
+		26577C1D192E42DE005F2A11 /* ActionGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionGroup.m; sourceTree = "<group>"; };
+		26577C1E192E42DE005F2A11 /* DummyAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DummyAction.h; sourceTree = "<group>"; };
+		26577C1F192E42DE005F2A11 /* DummyAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DummyAction.m; sourceTree = "<group>"; };
 		26577C21192E42DE005F2A11 /* ExecutorFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExecutorFactory.h; sourceTree = "<group>"; };
 		26577C22192E42DE005F2A11 /* ExecutorFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExecutorFactory.m; sourceTree = "<group>"; };
-		26577C23192E42DE005F2A11 /* IExecutor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IExecutor.h; sourceTree = "<group>"; };
+		26577C23192E42DE005F2A11 /* Executor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Executor.h; sourceTree = "<group>"; };
 		26577C24192E42DE005F2A11 /* ParallelExecutor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParallelExecutor.h; sourceTree = "<group>"; };
 		26577C25192E42DE005F2A11 /* ParallelExecutor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParallelExecutor.m; sourceTree = "<group>"; };
 		26577C26192E42DE005F2A11 /* SerialExecutor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SerialExecutor.h; sourceTree = "<group>"; };
@@ -184,13 +184,13 @@
 		26577C18192E42DE005F2A11 /* Actions */ = {
 			isa = PBXGroup;
 			children = (
-				26577C19192E42DE005F2A11 /* IAction.h */,
+				26577C19192E42DE005F2A11 /* Action.h */,
 				26577C1A192E42DE005F2A11 /* MockAsyncAction.h */,
 				26577C1B192E42DE005F2A11 /* MockAsyncAction.m */,
-				26577C1C192E42DE005F2A11 /* NYKActionGroup.h */,
-				26577C1D192E42DE005F2A11 /* NYKActionGroup.m */,
-				26577C1E192E42DE005F2A11 /* NYKDummyAction.h */,
-				26577C1F192E42DE005F2A11 /* NYKDummyAction.m */,
+				26577C1C192E42DE005F2A11 /* ActionGroup.h */,
+				26577C1D192E42DE005F2A11 /* ActionGroup.m */,
+				26577C1E192E42DE005F2A11 /* DummyAction.h */,
+				26577C1F192E42DE005F2A11 /* DummyAction.m */,
 			);
 			path = Actions;
 			sourceTree = "<group>";
@@ -200,7 +200,7 @@
 			children = (
 				26577C21192E42DE005F2A11 /* ExecutorFactory.h */,
 				26577C22192E42DE005F2A11 /* ExecutorFactory.m */,
-				26577C23192E42DE005F2A11 /* IExecutor.h */,
+				26577C23192E42DE005F2A11 /* Executor.h */,
 				26577C24192E42DE005F2A11 /* ParallelExecutor.h */,
 				26577C25192E42DE005F2A11 /* ParallelExecutor.m */,
 				26577C26192E42DE005F2A11 /* SerialExecutor.h */,
@@ -253,7 +253,7 @@
 		26577BD8192E427A005F2A11 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0510;
+				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = NyK;
 				TargetAttributes = {
 					26577C00192E427B005F2A11 = {
@@ -308,9 +308,9 @@
 			files = (
 				26577BFA192E427B005F2A11 /* ViewController.m in Sources */,
 				26577C2F192E42DE005F2A11 /* ParallelExecutor.m in Sources */,
-				26577C2C192E42DE005F2A11 /* NYKActionGroup.m in Sources */,
+				26577C2C192E42DE005F2A11 /* ActionGroup.m in Sources */,
 				26577BF4192E427B005F2A11 /* AppDelegate.m in Sources */,
-				26577C2D192E42DE005F2A11 /* NYKDummyAction.m in Sources */,
+				26577C2D192E42DE005F2A11 /* DummyAction.m in Sources */,
 				26577C2B192E42DE005F2A11 /* MockAsyncAction.m in Sources */,
 				26577C31192E42DE005F2A11 /* QueueProvider.m in Sources */,
 				26577C2E192E42DE005F2A11 /* ExecutorFactory.m in Sources */,
@@ -383,6 +383,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -443,6 +444,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CommandExecution/CommandExecution-Prefix.pch";
 				INFOPLIST_FILE = "CommandExecution/CommandExecution-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "NyK.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -456,6 +458,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CommandExecution/CommandExecution-Prefix.pch";
 				INFOPLIST_FILE = "CommandExecution/CommandExecution-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "NyK.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -477,6 +480,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "CommandExecutionTests/CommandExecutionTests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "NyK.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -495,6 +499,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CommandExecution/CommandExecution-Prefix.pch";
 				INFOPLIST_FILE = "CommandExecutionTests/CommandExecutionTests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "NyK.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -520,6 +525,7 @@
 				26577C14192E427B005F2A11 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		26577C15192E427B005F2A11 /* Build configuration list for PBXNativeTarget "CommandExecutionTests" */ = {
 			isa = XCConfigurationList;
@@ -528,6 +534,7 @@
 				26577C17192E427B005F2A11 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

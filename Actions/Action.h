@@ -30,7 +30,7 @@ typedef NS_ENUM(NSInteger, EEXECUTION_TYPE)
 /**
  *  Decalres the command interface
  */
-@protocol IAction <NSObject>
+@protocol Action <NSObject>
 
 @required
 

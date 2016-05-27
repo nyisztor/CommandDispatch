@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "IExecutor.h"
+#import "Executor.h"
 
 /**
  *  Creates executors of provided type
@@ -21,6 +21,6 @@
  */
 +(ExecutorFactory*) sharedInstance;
 
--(id<IExecutor>) makeExecutor:(EEXECUTION_TYPE)type;
+-(id<Executor>) makeExecutor:(EEXECUTION_TYPE)type;
 
 @end

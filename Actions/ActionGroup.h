@@ -7,12 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "IAction.h"
+#import "Action.h"
 /**
  *  Defines an action group
  *  Action groups can hold atomic actions of further action groups, following the Conposite Design Pattern
  */
-@interface NYKActionGroup : NSObject <IAction>
+@interface ActionGroup : NSObject <Action>
 
 @property (nonatomic, strong, readonly) NSString* identifier;   ///< unique ID
 @property (nonatomic, strong) NSMutableDictionary* parameters;  ///< custom parameters

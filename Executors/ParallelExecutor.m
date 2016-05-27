@@ -10,8 +10,8 @@
 #import "QueueProvider.h"
 
 #ifdef DEBUG
-#import "NYKDummyAction.h"
-#import "NYKActionGroup.h"
+#import "DummyAction.h"
+#import "ActionGroup.h"
 #endif
 
 @interface ParallelExecutor()
@@ -33,7 +33,7 @@
     return self;
 }
 
--(void) execute:(id<IAction>)command
+-(void) execute:(id<Action>)command
 {
     dispatch_async(self.globalQueue, ^{
         [command execute];
@@ -42,11 +42,11 @@
     
 #ifdef DEBUG
     // groups
-    if ( [command isKindOfClass:[NYKActionGroup class]])
+    if ( [command isKindOfClass:[ActionGroup class]])
     {
         NSLog( @"%@", @"ParallelExecutor is executing an Action Group" );
     }
-    else if ( [command isKindOfClass:[NYKDummyAction class]])
+    else if ( [command isKindOfClass:[DummyAction class]])
     {
         NSLog( @"%@", @"ParallelExecutor is executing an Action" );
     }
@@ -59,7 +59,7 @@
 
 -(void) executeCommands:(NSArray *)commands
 {
-    for(id<IAction> command in commands )
+    for(id<Action> command in commands )
     {
         dispatch_group_async(self.queuedGroup, self.globalQueue, ^{
             [command execute];

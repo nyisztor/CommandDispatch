@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "IAction.h"
+#import "Action.h"
 
-@interface NYKDummyAction : NSObject <IAction>
+@interface DummyAction : NSObject <Action>
 
 @property (nonatomic, strong, readonly) NSString* identifier;
 @property (nonatomic, strong) NSMutableDictionary* parameters;

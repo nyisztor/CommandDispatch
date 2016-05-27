@@ -6,16 +6,16 @@
 //  Copyright (c) 2014 NyK. All rights reserved.
 //
 
-#import "NYKActionGroup.h"
+#import "ActionGroup.h"
 #import "ExecutorFactory.h"
 
-@interface NYKActionGroup()
+@interface ActionGroup()
 @property(nonatomic, strong) NSString* identifier;
 @end
 
-@implementation NYKActionGroup
+@implementation ActionGroup
 
--(NYKActionGroup*) initWithIdentifier:(NSString*)id_in
+-(ActionGroup*) initWithIdentifier:(NSString*)id_in
 {
     self = [super init];
     if( self )
@@ -35,7 +35,7 @@
     NSLog( @"Executing action group %@", self.identifier );
     
     // create the executor based on action group type
-    id<IExecutor> executor = [[ExecutorFactory sharedInstance] makeExecutor:self.type];
+    id<Executor> executor = [[ExecutorFactory sharedInstance] makeExecutor:self.type];
     [executor executeCommands:self.execQueue];
     
     NSLog( @"Action group %@ completed", self.identifier );

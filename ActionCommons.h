@@ -8,8 +8,8 @@
 
 //#import "IExecutor.h"
 //#import "IAction.h"
-#import "NYKDummyAction.h"
+#import "DummyAction.h"
 #import "MockAsyncAction.h"
 
-#import "NYKActionGroup.h"
+#import "ActionGroup.h"
 #import "ExecutorFactory.h"

@@ -7,9 +7,9 @@
 //
 
 #import "SerialExecutor.h"
-#import "IAction.h"
-#import "NYKActionGroup.h"
-#import "NYKDummyAction.h"
+#import "Action.h"
+#import "ActionGroup.h"
+#import "DummyAction.h"
 #import "QueueProvider.h"
 
 const char* SERIAL_QUEUE_LABEL = "com.gammaproject.serialQueue";
@@ -33,7 +33,7 @@ const char* SERIAL_QUEUE_LABEL = "com.gammaproject.serialQueue";
     return self;
 }
 
--(void) execute:(id<IAction>)command
+-(void) execute:(id<Action>)command
 {
     dispatch_sync(self.serialQueue, ^{
         [command execute];
@@ -42,7 +42,7 @@ const char* SERIAL_QUEUE_LABEL = "com.gammaproject.serialQueue";
 
 -(void) executeCommands:(NSArray *)commands
 {
-    for(id<IAction> command in commands )
+    for(id<Action> command in commands )
     {
         // parallel action (group) nested in a serial one shall complete before starting the next command in the serial queue
         if( command.type == PARALLEL )

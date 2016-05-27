@@ -7,10 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "IExecutor.h"
+#import "Executor.h"
 /**
  *  Fires commands instantly, previous actions may still be executing
  */
-@interface ParallelExecutor : NSObject <IExecutor>
+@interface ParallelExecutor : NSObject <Executor>
 
 @end

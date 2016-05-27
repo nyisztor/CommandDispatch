@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "IAction.h"
+#import "Action.h"
 
-@interface MockAsyncAction : NSObject <IAction>
+@interface MockAsyncAction : NSObject <Action>
 
 @property (nonatomic, strong, readonly) NSString* identifier;
 @property (nonatomic, strong) NSMutableDictionary* parameters;

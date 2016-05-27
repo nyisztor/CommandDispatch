@@ -24,9 +24,9 @@
     return factory;
 }
 
--(id<IExecutor>) makeExecutor:(EEXECUTION_TYPE)type
+-(id<Executor>) makeExecutor:(EEXECUTION_TYPE)type
 {
-    id<IExecutor> result = nil;
+    id<Executor> result = nil;
     
     switch (type)
     {

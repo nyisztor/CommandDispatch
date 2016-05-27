@@ -7,11 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "IExecutor.h"
+#import "Executor.h"
 
 /**
  *  Executes actions in sequence
  */
-@interface SerialExecutor : NSObject <IExecutor>
+@interface SerialExecutor : NSObject <Executor>
 
 @end
