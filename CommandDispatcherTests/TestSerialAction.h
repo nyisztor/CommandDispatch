@@ -9,10 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "Action.h"
 
-@interface DummyAction : NSObject <Action>
+@interface TestSerialAction : NSObject <Action>
 
 @property (nonatomic, strong, readonly) NSString* identifier;
 @property (nonatomic, strong) NSMutableDictionary* parameters;
-@property (nonatomic, assign) EEXECUTION_TYPE type;
+@property (nonatomic, assign, readonly) EEXECUTION_TYPE type;
+@property (nonatomic, assign, readonly) EEXECUTION_STATE state;
 
 @end

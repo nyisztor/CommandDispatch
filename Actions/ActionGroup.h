@@ -1,6 +1,6 @@
 //
-//  NYKActionGroup.h
-//  ActionGroupTest
+//  ActionGroup.h
+//  CommandDispatcher
 //
 //  Created by Nyisztor Karoly on 10/14/13.
 //  Copyright (c) 2014 NyK. All rights reserved.
@@ -17,8 +17,9 @@
 
 @property (nonatomic, strong, readonly) NSString* identifier;   ///< unique ID
 @property (nonatomic, strong) NSMutableDictionary* parameters;  ///< custom parameters
-@property (nonatomic, assign) EEXECUTION_TYPE type;             ///< execution type
+@property (nonatomic, assign) EEXECUTION_TYPE type;             ///< execution type; tag your actions with the appropriate type
+@property (nonatomic, assign) EEXECUTION_STATE state;           ///< action's execution state
 
-@property(nonatomic, strong) NSArray* actions; ///< queue containing the commands (id<iAction> objects) to be executed
+@property(nonatomic, strong) NSArray* actions; ///< queue containing the commands (id<Action> objects) to be executed
 
 @end

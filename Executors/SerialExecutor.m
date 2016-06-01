@@ -1,6 +1,6 @@
 //
 //  SerialExecutor.m
-//  ActionGroupTest
+//  CommandDispatcher
 //
 //  Created by Nyisztor Karoly on 10/14/13.
 //  Copyright (c) 2014 NyK. All rights reserved.
@@ -9,7 +9,7 @@
 #import "SerialExecutor.h"
 #import "Action.h"
 #import "ActionGroup.h"
-#import "DummyAction.h"
+#import "TestSerialAction.h"
 
 @interface SerialExecutor()
 @property(nonatomic, retain) dispatch_queue_t serialQueue;
@@ -50,10 +50,13 @@
         }
         else
         {
+            dispatch_group_enter(_queuedGroup);
+            [command execute];
+            dispatch_group_leave(_queuedGroup);
             // !!! Calls to dispatch_sync() targeting the current queue will result in deadlock
-            dispatch_sync(self.serialQueue, ^{
-                [command execute];
-            });
+//            dispatch_sync(self.serialQueue, ^{
+//                [command execute];
+//            });
         }
     }
 }

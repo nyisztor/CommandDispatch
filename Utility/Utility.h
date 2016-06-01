@@ -1,6 +1,6 @@
 //
 //  Utility.h
-//  CommandExecution
+//  CommandDispatcher
 //
 //  Created by Nyisztor, Karoly on 2016. 05. 27..
 //  Copyright © 2016. NyK. All rights reserved.

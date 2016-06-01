@@ -8,8 +8,8 @@
 
 #import <XCTest/XCTest.h>
 #import "ActionGroup.h"
-#import "DummyAction.h"
-#import "MockAsyncAction.h"
+#import "TestSerialAction.h"
+#import "TestParallelAction.h"
 
 @interface CommandDispatcherTests : XCTestCase
 
@@ -50,37 +50,35 @@
     //      SERIAL ACTION #4
     //
     // [SERIAL GROUP #1] END
-    ActionGroup* serialGroupRoot = [[ActionGroup alloc] initWithIdentifier:@"serialGroupRoot"];
-    serialGroupRoot.type = SERIAL;
+    ActionGroup* serialGroupRoot = [[ActionGroup alloc] initWithIdentifier:@"serialGroupRoot" type:SERIAL];
     
-    DummyAction* serialAction1 = [[DummyAction alloc] initWithIdentifier:@"serialAction1"];
-    DummyAction* serialAction2 = [[DummyAction alloc] initWithIdentifier:@"serialAction2"];
+    TestSerialAction* serialAction1 = [[TestSerialAction alloc] initWithIdentifier:@"serialAction1" type:SERIAL];
+    TestSerialAction* serialAction2 = [[TestSerialAction alloc] initWithIdentifier:@"serialAction2" type:SERIAL];
     
-    ActionGroup* parallelGroupInner = [[ActionGroup alloc] initWithIdentifier:@"parallelGroupInner"];
-    parallelGroupInner.type = PARALLEL;
+    ActionGroup* parallelGroupInner = [[ActionGroup alloc] initWithIdentifier:@"parallelGroupInner" type:PARALLEL];
     
-    MockAsyncAction* parallelAction1 = [[MockAsyncAction alloc] initWithIdentifier:@"parallelAction1"];
+    TestParallelAction* parallelAction1 = [[TestParallelAction alloc] initWithIdentifier:@"parallelAction1" type:SERIAL];
     
     // serial group within the parallel group
-    ActionGroup* serialGroupInner = [[ActionGroup alloc] initWithIdentifier:@"serialGroupInner"];
-    serialGroupInner.type = SERIAL;
+    ActionGroup* serialGroupInner = [[ActionGroup alloc] initWithIdentifier:@"serialGroupInner" type:SERIAL];
     // define serial actions
-    DummyAction* serialAction11 = [[DummyAction alloc] initWithIdentifier:@"serialAction11"];
-    DummyAction* serialAction12 = [[DummyAction alloc] initWithIdentifier:@"serialAction12"];
+    TestSerialAction* serialAction11 = [[TestSerialAction alloc] initWithIdentifier:@"serialAction11" type:SERIAL];
+    TestSerialAction* serialAction12 = [[TestSerialAction alloc] initWithIdentifier:@"serialAction12" type:SERIAL];
     
     serialGroupInner.actions = @[serialAction11, serialAction12];
     
-    MockAsyncAction* parallelAction2 = [[MockAsyncAction alloc] initWithIdentifier:@"parallelAction2"];
+    TestParallelAction* parallelAction2 = [[TestParallelAction alloc] initWithIdentifier:@"parallelAction2" type:SERIAL];
     // add the actions to the parallel group
     parallelGroupInner.actions  = @[parallelAction1, serialGroupInner, parallelAction2];
     
-    DummyAction* serialAction3 = [[DummyAction alloc] initWithIdentifier:@"serialAction3"];
-    DummyAction* serialAction4 = [[DummyAction alloc] initWithIdentifier:@"serialAction4"];
+    TestSerialAction* serialAction3 = [[TestSerialAction alloc] initWithIdentifier:@"serialAction3" type:SERIAL];
+    TestSerialAction* serialAction4 = [[TestSerialAction alloc] initWithIdentifier:@"serialAction4" type:SERIAL];
     // add the actions and the actionGroup to the root group
     serialGroupRoot.actions = @[serialAction1, serialAction2, parallelGroupInner, serialAction3, serialAction4];
     
     // 2. call execute on the "root" action group
     [serialGroupRoot execute];
+    
 }
 
 - (void)testPerformanceExample {

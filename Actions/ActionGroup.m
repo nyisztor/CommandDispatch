@@ -1,6 +1,6 @@
 //
-//  NYKActionGroup.m
-//  ActionGroupTest
+//  ActionGroup.m
+//  CommandDispatcher
 //
 //  Created by Nyisztor Karoly on 10/14/13.
 //  Copyright (c) 2014 NyK. All rights reserved.
@@ -17,13 +17,14 @@
 
 @implementation ActionGroup
 
--(ActionGroup*) initWithIdentifier:(NSString*)id_in
+-(ActionGroup*) initWithIdentifier:(NSString*)id_in type:(EEXECUTION_TYPE)type_in
 {
     self = [super init];
     if( self )
     {
         self.identifier = id_in;
-        self.type = UNKNOWN;
+        self.type = type_in;
+        self.state = IDLE;
     }
     return self;
 }
@@ -36,11 +37,12 @@
     if( !_actions.count )
     {
         NSLog( @"Action group %@ is empty!", self.identifier );
+        self.state = COMPLETED;
     }
     else
     {
         NSLog( @"Executing action group %@", self.identifier );
-        
+        self.state = EXECUTING;
         // create the executor based on action group type
         if( _actions.count )
         {
@@ -48,6 +50,7 @@
             [executor fireActions:_actions];
         }
         
+        self.state = COMPLETED;
         NSLog( @"Action group %@ completed", self.identifier );
     }
 }

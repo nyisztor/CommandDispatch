@@ -1,5 +1,5 @@
 //
-//  MockAsyncAction.h
+//  TestParallelAction.h
 //  ActionGroupTest
 //
 //  Created by Nyisztor Karoly on 10/16/13.
@@ -9,10 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "Action.h"
 
-@interface MockAsyncAction : NSObject <Action>
+@interface TestParallelAction : NSObject <Action>
 
 @property (nonatomic, strong, readonly) NSString* identifier;
 @property (nonatomic, strong) NSMutableDictionary* parameters;
-@property (nonatomic, assign) EEXECUTION_TYPE type;
+@property (nonatomic, assign, readonly) EEXECUTION_TYPE type;
+@property (nonatomic, assign, readonly) EEXECUTION_STATE state;
 
 @end

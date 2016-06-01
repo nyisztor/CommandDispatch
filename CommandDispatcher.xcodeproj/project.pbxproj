@@ -22,8 +22,8 @@
 		3740371B1CF89E4D0059AA84 /* SerialExecutor.m in Sources */ = {isa = PBXBuildFile; fileRef = 374037091CF89E4D0059AA84 /* SerialExecutor.m */; };
 		3740371C1CF89E4D0059AA84 /* Utility.h in Headers */ = {isa = PBXBuildFile; fileRef = 3740370B1CF89E4D0059AA84 /* Utility.h */; };
 		3740371D1CF89E4D0059AA84 /* Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = 3740370C1CF89E4D0059AA84 /* Utility.m */; };
-		374037231CF89ED20059AA84 /* MockAsyncAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 3740371F1CF89ED20059AA84 /* MockAsyncAction.m */; };
-		374037241CF89ED20059AA84 /* DummyAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 374037201CF89ED20059AA84 /* DummyAction.m */; };
+		374037231CF89ED20059AA84 /* TestParallelAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 3740371F1CF89ED20059AA84 /* TestParallelAction.m */; };
+		374037241CF89ED20059AA84 /* TestSerialAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 374037201CF89ED20059AA84 /* TestSerialAction.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,10 +55,10 @@
 		374037091CF89E4D0059AA84 /* SerialExecutor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SerialExecutor.m; sourceTree = "<group>"; };
 		3740370B1CF89E4D0059AA84 /* Utility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utility.h; sourceTree = "<group>"; };
 		3740370C1CF89E4D0059AA84 /* Utility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utility.m; sourceTree = "<group>"; };
-		3740371F1CF89ED20059AA84 /* MockAsyncAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MockAsyncAction.m; sourceTree = "<group>"; };
-		374037201CF89ED20059AA84 /* DummyAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DummyAction.m; sourceTree = "<group>"; };
-		374037211CF89ED20059AA84 /* DummyAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DummyAction.h; sourceTree = "<group>"; };
-		374037221CF89ED20059AA84 /* MockAsyncAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MockAsyncAction.h; sourceTree = "<group>"; };
+		3740371F1CF89ED20059AA84 /* TestParallelAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestParallelAction.m; sourceTree = "<group>"; };
+		374037201CF89ED20059AA84 /* TestSerialAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestSerialAction.m; sourceTree = "<group>"; };
+		374037211CF89ED20059AA84 /* TestSerialAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestSerialAction.h; sourceTree = "<group>"; };
+		374037221CF89ED20059AA84 /* TestParallelAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestParallelAction.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,10 +114,10 @@
 			isa = PBXGroup;
 			children = (
 				374036EF1CF89DDE0059AA84 /* CommandDispatcherTests.m */,
-				3740371F1CF89ED20059AA84 /* MockAsyncAction.m */,
-				374037201CF89ED20059AA84 /* DummyAction.m */,
-				374037211CF89ED20059AA84 /* DummyAction.h */,
-				374037221CF89ED20059AA84 /* MockAsyncAction.h */,
+				374037211CF89ED20059AA84 /* TestSerialAction.h */,
+				374037201CF89ED20059AA84 /* TestSerialAction.m */,
+				374037221CF89ED20059AA84 /* TestParallelAction.h */,
+				3740371F1CF89ED20059AA84 /* TestParallelAction.m */,
 				374036F11CF89DDE0059AA84 /* Info.plist */,
 			);
 			path = CommandDispatcherTests;
@@ -282,8 +282,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				374037241CF89ED20059AA84 /* DummyAction.m in Sources */,
-				374037231CF89ED20059AA84 /* MockAsyncAction.m in Sources */,
+				374037241CF89ED20059AA84 /* TestSerialAction.m in Sources */,
+				374037231CF89ED20059AA84 /* TestParallelAction.m in Sources */,
 				374036F01CF89DDE0059AA84 /* CommandDispatcherTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -460,6 +460,7 @@
 				374036F61CF89DDE0059AA84 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		374036F71CF89DDE0059AA84 /* Build configuration list for PBXNativeTarget "CommandDispatcherTests" */ = {
 			isa = XCConfigurationList;
@@ -468,6 +469,7 @@
 				374036F91CF89DDE0059AA84 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
