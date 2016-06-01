@@ -20,10 +20,9 @@
 		374037191CF89E4D0059AA84 /* ParallelExecutor.m in Sources */ = {isa = PBXBuildFile; fileRef = 374037071CF89E4D0059AA84 /* ParallelExecutor.m */; };
 		3740371A1CF89E4D0059AA84 /* SerialExecutor.h in Headers */ = {isa = PBXBuildFile; fileRef = 374037081CF89E4D0059AA84 /* SerialExecutor.h */; };
 		3740371B1CF89E4D0059AA84 /* SerialExecutor.m in Sources */ = {isa = PBXBuildFile; fileRef = 374037091CF89E4D0059AA84 /* SerialExecutor.m */; };
-		3740371C1CF89E4D0059AA84 /* Utility.h in Headers */ = {isa = PBXBuildFile; fileRef = 3740370B1CF89E4D0059AA84 /* Utility.h */; };
-		3740371D1CF89E4D0059AA84 /* Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = 3740370C1CF89E4D0059AA84 /* Utility.m */; };
 		374037231CF89ED20059AA84 /* TestParallelAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 3740371F1CF89ED20059AA84 /* TestParallelAction.m */; };
 		374037241CF89ED20059AA84 /* TestSerialAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 374037201CF89ED20059AA84 /* TestSerialAction.m */; };
+		96F8EA191CFF7895001B4900 /* Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = 3740370C1CF89E4D0059AA84 /* Utility.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,7 +85,6 @@
 				374036E21CF89DDE0059AA84 /* CommandDispatcher */,
 				374036FA1CF89E4D0059AA84 /* Actions */,
 				374037021CF89E4D0059AA84 /* Executors */,
-				3740370A1CF89E4D0059AA84 /* Utility */,
 				374036EE1CF89DDE0059AA84 /* CommandDispatcherTests */,
 				374036E11CF89DDE0059AA84 /* Products */,
 			);
@@ -113,6 +111,7 @@
 		374036EE1CF89DDE0059AA84 /* CommandDispatcherTests */ = {
 			isa = PBXGroup;
 			children = (
+				3740370A1CF89E4D0059AA84 /* Utility */,
 				374036EF1CF89DDE0059AA84 /* CommandDispatcherTests.m */,
 				374037211CF89ED20059AA84 /* TestSerialAction.h */,
 				374037201CF89ED20059AA84 /* TestSerialAction.m */,
@@ -153,7 +152,8 @@
 				3740370B1CF89E4D0059AA84 /* Utility.h */,
 				3740370C1CF89E4D0059AA84 /* Utility.m */,
 			);
-			path = Utility;
+			name = Utility;
+			path = ../Utility;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -169,7 +169,6 @@
 				3740370E1CF89E4D0059AA84 /* Action.h in Headers */,
 				374037181CF89E4D0059AA84 /* ParallelExecutor.h in Headers */,
 				374036E41CF89DDE0059AA84 /* CommandDispatcher.h in Headers */,
-				3740371C1CF89E4D0059AA84 /* Utility.h in Headers */,
 				374037151CF89E4D0059AA84 /* Executor.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -272,7 +271,6 @@
 			files = (
 				374037101CF89E4D0059AA84 /* ActionGroup.m in Sources */,
 				374037171CF89E4D0059AA84 /* ExecutorFactory.m in Sources */,
-				3740371D1CF89E4D0059AA84 /* Utility.m in Sources */,
 				3740371B1CF89E4D0059AA84 /* SerialExecutor.m in Sources */,
 				374037191CF89E4D0059AA84 /* ParallelExecutor.m in Sources */,
 			);
@@ -282,6 +280,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96F8EA191CFF7895001B4900 /* Utility.m in Sources */,
 				374037241CF89ED20059AA84 /* TestSerialAction.m in Sources */,
 				374037231CF89ED20059AA84 /* TestParallelAction.m in Sources */,
 				374036F01CF89DDE0059AA84 /* CommandDispatcherTests.m in Sources */,

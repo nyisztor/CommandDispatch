@@ -11,7 +11,7 @@
 #import "ActionGroup.h"
 #import "TestSerialAction.h"
 
-@interface SerialExecutor()
+@interface SerialExecutor()  <SerialActionExecuting>
 @property(nonatomic, retain) dispatch_queue_t serialQueue;
 @property(nonatomic, retain) dispatch_group_t queuedGroup;
 @end
@@ -41,24 +41,31 @@
 
 -(void) fireActions:(NSArray *)actions
 {
-    for(id<Action> command in actions )
+    for(id<Action> action in actions )
     {
-        // parallel action (group) nested in a serial one shall complete before starting the next command in the serial queue
-        if( command.type == PARALLEL )
-        {
-            [command execute];
-        }
-        else
-        {
-            dispatch_group_enter(_queuedGroup);
-            [command execute];
-            dispatch_group_leave(_queuedGroup);
-            // !!! Calls to dispatch_sync() targeting the current queue will result in deadlock
-//            dispatch_sync(self.serialQueue, ^{
-//                [command execute];
-//            });
-        }
+        action.serialExecutionDelegate = self;
+        [action execute];
     }
 }
+
+#pragma mark - SerialActionExecuting
+
+-(void) willExecute:(id<Action>)action_in
+{
+#ifdef DEBUG
+    NSLog(@"\tAbout to execute %@", action_in.identifier);
+#endif
+    dispatch_group_enter(_queuedGroup);
+}
+
+-(void) didExecute:(id<Action>)action_in
+{
+#ifdef DEBUG
+    NSLog(@"\t%@ completed", action_in.identifier);
+#endif
+
+    dispatch_group_leave(_queuedGroup);
+}
+
 
 @end

@@ -20,6 +20,8 @@
 @property (nonatomic, assign) EEXECUTION_TYPE type;             ///< execution type; tag your actions with the appropriate type
 @property (nonatomic, assign) EEXECUTION_STATE state;           ///< action's execution state
 
+@property (nonatomic, assign) id<SerialActionExecuting> serialExecutionDelegate;
+
 @property(nonatomic, strong) NSArray* actions; ///< queue containing the commands (id<Action> objects) to be executed
 
 @end

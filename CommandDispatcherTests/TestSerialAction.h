@@ -16,4 +16,5 @@
 @property (nonatomic, assign, readonly) EEXECUTION_TYPE type;
 @property (nonatomic, assign, readonly) EEXECUTION_STATE state;
 
+@property (nonatomic, assign) id<SerialActionExecuting> serialExecutionDelegate;
 @end

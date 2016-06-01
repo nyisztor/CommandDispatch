@@ -58,11 +58,23 @@ typedef NS_ENUM(NSInteger, EEXECUTION_STATE)
 @protocol Action;
 
 /**
- *  Delegate to be implemented by SerialExecutor classes
+ *  Delegate implemented by the SerialExecutor to execute async actions in sequence
+ *  @remark Asynchronous actions nested in a serial group shall be executed sequentially; the action must call these delegate methods so that the serial executor can synchronize action execution
  */
-@protocol SerialActionExecuting
+@protocol SerialActionExecuting <NSObject>
 
+/**
+ *  Called before the action is executed
+ *
+ *  @param action_in <#action_in description#>
+ */
 -(void) willExecute:(id<Action>)action_in;
+
+/**
+ *  Called after the action completes
+ *
+ *  @param action_in <#action_in description#>
+ */
 -(void) didExecute:(id<Action>)action_in;
 
 @end
@@ -97,6 +109,9 @@ typedef NS_ENUM(NSInteger, EEXECUTION_STATE)
 @property (nonatomic, assign, readonly) EEXECUTION_TYPE type;   ///< execution type
 @property (nonatomic, assign, readonly) EEXECUTION_STATE state; ///< action's execution state
 
-@property (nonatomic, assign) id<SerialActionExecuting> serialExecutionDelegate; ///< delegate to be notified about action execution
+/**
+ *  Delegate methods shall be triggered in order to enable the Serial Executor to execute async requests sequentially
+ */
+@property (nonatomic, assign) id<SerialActionExecuting> serialExecutionDelegate;
 
 @end

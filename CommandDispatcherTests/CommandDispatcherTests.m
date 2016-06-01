@@ -62,10 +62,10 @@
     // serial group within the parallel group
     ActionGroup* serialGroupInner = [[ActionGroup alloc] initWithIdentifier:@"serialGroupInner" type:SERIAL];
     // define serial actions
-    TestSerialAction* serialAction11 = [[TestSerialAction alloc] initWithIdentifier:@"serialAction11" type:SERIAL];
-    TestSerialAction* serialAction12 = [[TestSerialAction alloc] initWithIdentifier:@"serialAction12" type:SERIAL];
+    TestParallelAction* parallelAction11 = [[TestParallelAction alloc] initWithIdentifier:@"serialAction11" type:PARALLEL];
+    TestParallelAction* parallelAction12 = [[TestParallelAction alloc] initWithIdentifier:@"serialAction12" type:PARALLEL];
     
-    serialGroupInner.actions = @[serialAction11, serialAction12];
+    serialGroupInner.actions = @[parallelAction11, parallelAction12];
     
     TestParallelAction* parallelAction2 = [[TestParallelAction alloc] initWithIdentifier:@"parallelAction2" type:SERIAL];
     // add the actions to the parallel group
