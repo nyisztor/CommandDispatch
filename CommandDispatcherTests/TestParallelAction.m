@@ -33,28 +33,33 @@
 
 -(void) execute
 {
-    // call delegate method for serial executors
-    if( self.serialExecutionDelegate && [self.serialExecutionDelegate respondsToSelector:@selector(willExecute:)] )
-    {
-        [self.serialExecutionDelegate willExecute:self];
-    }
-    
     self.state = EXECUTING;
     
     float t = [Utility randomizeInRange:1.f upperLimit:3.f];
-    NSLog( @"Executing async action %@, sleeping for %0.2f", self.identifier, t );
-        
+    
+    NSString* str = [self indentedString:[NSString stringWithFormat:@"Executing action %@, sleeping for %0.2f", self.identifier, t] level:self.nestingLevel];
+    NSLog( @"%@", str );
+
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         [NSThread sleepForTimeInterval:t];
         
         // call delegate method
-        if( self.serialExecutionDelegate && [self.serialExecutionDelegate respondsToSelector:@selector(didExecute:)] )
+        if( self.serialExecutionDelegate && [self.serialExecutionDelegate respondsToSelector:@selector(signal:)] )
         {
-            [self.serialExecutionDelegate didExecute:self];
+            [self.serialExecutionDelegate signal:self];
         }
         self.state = COMPLETED;
-        NSLog( @"Action %@ completed", self.identifier );
+        
+        NSString* str2 = [self indentedString:[NSString stringWithFormat:@"Action %@ completed", self.identifier] level:self.nestingLevel];
+        NSLog( @"%@", str2 );
+
     });
+    
+    // call delegate method
+    if( self.serialExecutionDelegate && [self.serialExecutionDelegate respondsToSelector:@selector(wait:)] )
+    {
+        [self.serialExecutionDelegate wait:self];
+    }
 }
 
 //-(void) dealloc
@@ -66,4 +71,19 @@
 {
     return [NSString stringWithFormat:@"%@, ID: %@", NSStringFromClass(self.class), _identifier];
 }
+
+-(NSString*) indentedString:(NSString*)string_in level:(NSUInteger)nestingLevel
+{
+    NSMutableString* indent = [NSMutableString new];
+    
+    for (int i = 0; i < nestingLevel; ++i)
+    {
+        [indent appendString:@"\t"];
+    }
+    
+    [indent appendString:string_in];
+    
+    return indent;
+}
+
 @end

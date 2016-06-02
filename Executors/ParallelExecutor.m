@@ -68,11 +68,11 @@
     // wait till all asynchronously executed group actions complete
     dispatch_group_wait(self.queuedGroup, DISPATCH_TIME_FOREVER);
     
-#ifdef DEBUG
-    dispatch_group_notify(self.queuedGroup, self.globalQueue, ^{
-        NSLog( @"ParallelExecutor finished execution" );
-    });
-#endif
+//#ifdef DEBUG
+//    dispatch_group_notify(self.queuedGroup, self.globalQueue, ^{
+//        NSLog( @"ParallelExecutor finished execution" );
+//    });
+//#endif
 }
 
 @end

@@ -78,7 +78,6 @@
     
     // 2. call execute on the "root" action group
     [serialGroupRoot execute];
-    
 }
 
 - (void)testPerformanceExample {

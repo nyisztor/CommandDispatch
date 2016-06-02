@@ -54,7 +54,7 @@ typedef NS_ENUM(NSInteger, EEXECUTION_STATE)
 };
 
 
-#import <Foundation/Foundation.h>
+@import Foundation;
 @protocol Action;
 
 /**
@@ -68,14 +68,15 @@ typedef NS_ENUM(NSInteger, EEXECUTION_STATE)
  *
  *  @param action_in <#action_in description#>
  */
--(void) willExecute:(id<Action>)action_in;
+-(void) wait:(id<Action>)action_in;
+
 
 /**
  *  Called after the action completes
  *
  *  @param action_in <#action_in description#>
  */
--(void) didExecute:(id<Action>)action_in;
+-(void) signal:(id<Action>)action_in;
 
 @end
 
@@ -108,6 +109,8 @@ typedef NS_ENUM(NSInteger, EEXECUTION_STATE)
 @property (nonatomic, strong) NSMutableDictionary* parameters;  ///< custom parameters
 @property (nonatomic, assign, readonly) EEXECUTION_TYPE type;   ///< execution type
 @property (nonatomic, assign, readonly) EEXECUTION_STATE state; ///< action's execution state
+
+@property (nonatomic, assign) NSUInteger nestingLevel; ///< shows group/action nesting level
 
 /**
  *  Delegate methods shall be triggered in order to enable the Serial Executor to execute async requests sequentially

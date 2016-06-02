@@ -12,7 +12,6 @@
 #import "TestSerialAction.h"
 
 @interface SerialExecutor()  <SerialActionExecuting>
-@property(nonatomic, retain) dispatch_queue_t serialQueue;
 @property(nonatomic, retain) dispatch_group_t queuedGroup;
 @end
 
@@ -23,9 +22,6 @@
     self = [super init];
     if( self )
     {
-        // Create a dedicated serial queue for each SerialExecutor instance
-        NSString* uIdStr = [NSUUID UUID].UUIDString;
-        self.serialQueue = dispatch_queue_create(uIdStr.UTF8String, DISPATCH_QUEUE_SERIAL);
         self.queuedGroup = dispatch_group_create();
     }
     
@@ -34,15 +30,20 @@
 
 -(void) execute:(id<Action>)command
 {
-    dispatch_sync(self.serialQueue, ^{
-        [command execute];
-    });
+    [command execute];
 }
 
 -(void) fireActions:(NSArray *)actions
 {
     for(id<Action> action in actions )
     {
+        
+#ifdef DEBUG
+        NSString* str = [self indentedString:[NSString stringWithFormat:@"About to execute %@", action.identifier] level:action.nestingLevel];
+        NSLog( @"%@", str );
+#endif
+        dispatch_group_enter(_queuedGroup);
+
         action.serialExecutionDelegate = self;
         [action execute];
     }
@@ -50,22 +51,36 @@
 
 #pragma mark - SerialActionExecuting
 
--(void) willExecute:(id<Action>)action_in
+-(void) wait:(id<Action>)action_in
 {
 #ifdef DEBUG
-    NSLog(@"\tAbout to execute %@", action_in.identifier);
+    NSString* str = [self indentedString:[NSString stringWithFormat:@"%@ is running", action_in.identifier] level:action_in.nestingLevel];
+    NSLog( @"%@", str );
 #endif
-    dispatch_group_enter(_queuedGroup);
+    dispatch_group_wait(_queuedGroup, DISPATCH_TIME_FOREVER);
 }
 
--(void) didExecute:(id<Action>)action_in
+-(void) signal:(id<Action>)action_in
 {
 #ifdef DEBUG
-    NSLog(@"\t%@ completed", action_in.identifier);
+    NSString* str = [self indentedString:[NSString stringWithFormat:@"%@ signal received", action_in.identifier] level:action_in.nestingLevel];
+    NSLog( @"%@", str );
 #endif
-
     dispatch_group_leave(_queuedGroup);
 }
 
+-(NSString*) indentedString:(NSString*)string_in level:(NSUInteger)nestingLevel
+{
+    NSMutableString* indent = [NSMutableString new];
+    
+    for (int i = 0; i < nestingLevel; ++i)
+    {
+        [indent appendString:@"\t"];
+    }
+    
+    [indent appendString:string_in];
+    
+    return indent;
+}
 
 @end
