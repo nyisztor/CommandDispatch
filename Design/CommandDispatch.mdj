@@ -8230,6 +8230,29 @@
 							},
 							"lineStyle": 1,
 							"points": "1767:551;1805:528"
+						},
+						{
+							"_type": "UMLNoteView",
+							"_id": "AAAAAAFVJaXGepxYzNg=",
+							"_parent": {
+								"$ref": "AAAAAAFFxnMtnhONn6Y="
+							},
+							"visible": true,
+							"enabled": true,
+							"lineColor": "#000000",
+							"fillColor": "#ffffff",
+							"fontColor": "#000000",
+							"font": "Arial;13;0",
+							"showShadow": true,
+							"containerChangeable": false,
+							"containerExtending": false,
+							"left": 16,
+							"top": 8,
+							"width": 385,
+							"height": 291,
+							"autoResize": false,
+							"text": "CommandDispatcher allows grouping of commands and executing them sequentially or in parallel.\n\nYou can nest multiple commands or command groups as in the example below:\n[SERIAL GROUP #1] BEGIN\n     SERIAL ACTION #1\n     SERIAL ACTION #2\n     [PARALLEL GROUP #1] BEGIN\n         PARALLEL ACTION #1\n         [SERIAL GROUP #2] BEGIN\n             SERIAL ACTION #11\n             SERIAL ACTION #12\n         [SERIAL GROUP #2] END\n         PARALLEL ACTION #2\n     [PARALLEL GROUP #1] END\n     SERIAL ACTION #3\n     SERIAL ACTION #4\n[SERIAL GROUP #1] END",
+							"wordWrap": true
 						}
 					]
 				},

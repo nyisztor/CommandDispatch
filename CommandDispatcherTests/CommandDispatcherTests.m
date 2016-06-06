@@ -78,6 +78,13 @@
     
     // 2. call execute on the "root" action group
     [serialGroupRoot execute];
+    
+    XCTAssertTrue(serialGroupRoot.state == COMPLETED, "Actions should be completed, received different state instead ");
+    
+    for( id<Action>action in serialGroupRoot.actions )
+    {
+        XCTAssertTrue(action.state == COMPLETED, "Actions should be completed, received different state instead ");
+    }
 }
 
 - (void)testPerformanceExample {
